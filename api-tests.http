@@ -1,0 +1,52 @@
+### AI Story Generator - API Tests
+### Use the REST Client VS Code extension to run these
+
+@baseUrl = http://localhost:8000
+
+### Health Check
+GET {{baseUrl}}/health
+
+###
+
+### Root
+GET {{baseUrl}}/
+
+###
+
+### Generate Story - Robot in forest
+POST {{baseUrl}}/api/v1/story/generate
+Content-Type: application/json
+
+{
+  "prompt": "A lonely robot discovers a hidden forest."
+}
+
+###
+
+### Generate Story - Dragon and child
+POST {{baseUrl}}/api/v1/story/generate
+Content-Type: application/json
+
+{
+  "prompt": "A dragon becomes best friends with a village child."
+}
+
+###
+
+### Generate Story - Astronaut on Mars
+POST {{baseUrl}}/api/v1/story/generate
+Content-Type: application/json
+
+{
+  "prompt": "A lonely astronaut finds a message in a bottle on Mars."
+}
+
+###
+
+### Test validation - prompt too short (should return 422)
+POST {{baseUrl}}/api/v1/story/generate
+Content-Type: application/json
+
+{
+  "prompt": "Hi"
+}
